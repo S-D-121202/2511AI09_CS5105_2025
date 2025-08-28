@@ -16,7 +16,7 @@ def row_adder(csv_file, row):
         writer.writerow(row)    
 
 def row_addition_section(uploaded_file):
-    st.subheader("➕ Add a Row to CSV")
+    st.subheader("Add a Row to CSV")
     roll = st.text_input("Roll (format: 4 digits + 2 letters + 2 digits, e.g. 2021CS01)")
     name = st.text_input("Name (First Last, e.g. John Doe)")
     email = st.text_input("Email (e.g. abc@xyz.co.in)")
@@ -27,17 +27,17 @@ def row_addition_section(uploaded_file):
         email_pattern = r'^[a-z]+@[a-z]+\.co\.in$'
 
         if not re.match(roll_pattern, roll):
-            st.error("❌ Invalid roll format")
+            st.error("Invalid roll format")
             return
         if not re.match(name_pattern, name):
-            st.error("❌ Invalid name format")
+            st.error("Invalid name format")
             return
         if not re.match(email_pattern, email):
-            st.error("❌ Invalid email format")
+            st.error("Invalid email format")
             return
 
         row_adder(uploaded_file.name, [roll, name, email])
-        st.success("✅ Row added successfully!")
+        st.success("Row added successfully!")
 
 # ---------------------------
 # Output generator (same logic as before)
@@ -170,7 +170,7 @@ def output_generator(inp_data_set, group_nums):
 # Main Streamlit app
 # ---------------------------
 def main():
-    st.title('📂 File Processor')
+    st.title('File Processor')
 
     uploaded_file = st.file_uploader('Upload your CSV file', type=['csv'])
     
@@ -214,3 +214,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
