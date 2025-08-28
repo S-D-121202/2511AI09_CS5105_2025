@@ -185,7 +185,7 @@ def main():
         if choice == "Add Row":
             row_addition_section(uploaded_file)
 
-        elif choice == "Process CSV":
+        elif choice == "Process file":
             group_nums = st.number_input("Enter number of groups", min_value=1, step=1)
             if st.button("Process File"):
                 ret_list = output_generator(df, group_nums)
@@ -215,6 +215,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
