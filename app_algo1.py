@@ -172,14 +172,14 @@ def output_generator(inp_data_set, group_nums):
 def main():
     st.title('File Processor')
 
-    uploaded_file = st.file_uploader('Upload your CSV file', type=['csv'])
+    uploaded_file = st.file_uploader('Upload your file', type=['xlsx', 'xls'])
     
     if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
+        df = pd.read_excel(uploaded_file)
         st.write("Preview of uploaded data:")
         st.dataframe(df.head())
 
-        choice = st.radio("Choose an option:", ["Add Row", "Process CSV"])
+        choice = st.radio("Choose an option:", ["Add Row", "Process file"])
 
         if choice == "Add Row":
             row_addition_section(uploaded_file)
@@ -214,4 +214,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
