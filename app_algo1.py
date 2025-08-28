@@ -6,6 +6,7 @@ import os
 import re
 import io
 import zipfile as zp
+import openpyxl
 
 # ---------------------------
 # Row addition (Streamlit form)
@@ -175,7 +176,7 @@ def main():
     uploaded_file = st.file_uploader('Upload your file', type=['xlsx', 'xls'])
     
     if uploaded_file is not None:
-        df = pd.read_excel(uploaded_file)
+        df = pd.read_excel(uploaded_file, engine="openpyxl")
         st.write("Preview of uploaded data:")
         st.dataframe(df.head())
 
@@ -214,5 +215,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
