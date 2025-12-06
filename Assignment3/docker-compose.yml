@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  seating-app:
+    build: .
+    container_name: seating_app
+    restart: always
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./no_image_available.png:/app/no_image_available.png
+      - ./logs:/app/logs
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
